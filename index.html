@@ -2,14 +2,66 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diário Animado</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Fonte moderna: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind config personalizada -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2F3C7E',     // Azul petróleo
+              secondary: '#D8D4F2',   // Lilás claro
+              accent: '#A2D5AB',      // Verde menta
+              neutral: '#F7F7F7',     // Cinza claro
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              fadeIn: 'fadeIn 1.2s ease-out forwards',
+              bounceIn: 'bounceIn 1s ease-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 },
+              },
+              bounceIn: {
+                '0%': { transform: 'scale(0.9)', opacity: 0 },
+                '60%': { transform: 'scale(1.05)', opacity: 1 },
+                '100%': { transform: 'scale(1)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body class="bg-yellow-50 font-handwriting">
-    <div id="root"></div>
+
+  <body class="bg-neutral font-sans min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white rounded-2xl shadow-lg p-8 text-center animate-fadeIn max-w-md">
+      <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
+
+      <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
+
+      <p class="text-gray-600 mb-6 text-base">
+        Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
+      </p>
+
+      <button class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
+        Começar agora
+      </button>
+    </div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
