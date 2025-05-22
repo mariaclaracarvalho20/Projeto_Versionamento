@@ -48,20 +48,35 @@
   </head>
 
   <body class="bg-neutral font-sans min-h-screen flex items-center justify-center px-4">
-    <div class="bg-white rounded-2xl shadow-lg p-8 text-center animate-fadeIn max-w-md">
-      <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
+  <div id="intro" class="bg-white rounded-2xl shadow-lg p-8 text-center animate-fadeIn max-w-md">
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
 
-      <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
+    <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
 
-      <p class="text-gray-600 mb-6 text-base">
-        Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
-      </p>
+    <p class="text-gray-600 mb-6 text-base">
+      Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
+    </p>
 
-      <button class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
-        Começar agora
-      </button>
-    </div>
+    <button id="startBtn" class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
+      Começar agora
+    </button>
+  </div>
 
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <div id="loginForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
+    <h2 class="text-2xl text-primary font-bold mb-4">Login</h2>
+
+    <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
+    <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
+
+    <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
+  </div>
+
+  <script>
+    document.getElementById('startBtn').addEventListener('click', function () {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+    });
+  </script>
+</body>
+
 </html>
