@@ -76,17 +76,35 @@
     <div class="flex justify-center gap-4"> 
     <!--Botões-->
     
-    <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
-    <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Criar conta</button>
+      <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
+      <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Criar conta</button>
+    </div>
+    <!-- Botão Voltar -->
+    <button id="backBtn" class="mt-6 text-primary hover:underline text-sm">
+       ← Voltar à página inicial
+    </button> 
   
+
   </div>
 
+  
+
   <script>
-    document.getElementById('startBtn').addEventListener('click', function () {
-      document.getElementById('intro').classList.add('hidden');
-      document.getElementById('loginForm').classList.remove('hidden');
-    });
-  </script>
+  const intro = document.getElementById('intro');
+  const loginForm = document.getElementById('loginForm');
+  const startBtn = document.getElementById('startBtn');
+  const backBtn = document.getElementById('backBtn');
+
+  startBtn.addEventListener('click', () => {
+    intro.classList.add('hidden');
+    loginForm.classList.remove('hidden');
+  });
+
+  backBtn.addEventListener('click', () => {
+    loginForm.classList.add('hidden');
+    intro.classList.remove('hidden');
+  });
+</script>
 </body>
 
 </html>
