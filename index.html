@@ -48,63 +48,74 @@
   </head>
 
   <body class="bg-neutral font-sans min-h-screen flex items-center justify-center px-4">
-  <!-- Tela de introdução -->
+
+    <!-- Tela de introdução -->
     <div id="intro" class="bg-white rounded-2xl shadow-lg p-8 text-center animate-fadeIn max-w-md">
-    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
-
-    <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
-
-    <p class="text-gray-600 mb-6 text-base">
-      Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
-    </p>
-
-    <button id="startBtn" class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
-      Começar agora
-    </button>
-  </div>
-
-  <!-- Tela de login -->
-  <div id="loginForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
-    
-
-    <h2 class="text-2xl text-primary font-bold mb-4">Login</h2>
-  <!-- Campos para receber os dados-->
-    <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-    <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-
-  
-    <div class="flex justify-center gap-4"> 
-    <!--Botões-->
-    
-      <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
-      <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Criar conta</button>
+      <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
+      <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
+      <p class="text-gray-600 mb-6 text-base">
+        Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
+      </p>
+      <button id="startBtn" class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
+        Começar agora
+      </button>
     </div>
-    <!-- Botão Voltar -->
-    <button id="backBtn" class="mt-6 text-primary hover:underline text-sm">
-       ← Voltar à página inicial
-    </button> 
-  
 
-  </div>
+    <!-- Tela de login -->
+    <div id="loginForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
+      <h2 class="text-2xl text-primary font-bold mb-4">Login</h2>
+      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
+      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
 
-  
+      <div class="flex justify-center gap-4">
+        <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
+        <button id="createAccountBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Criar conta</button>
+      </div>
 
-  <script>
-  const intro = document.getElementById('intro');
-  const loginForm = document.getElementById('loginForm');
-  const startBtn = document.getElementById('startBtn');
-  const backBtn = document.getElementById('backBtn');
+      <button id="backBtn" class="mt-6 text-primary hover:underline text-sm">← Voltar à página inicial</button>
+    </div>
 
-  startBtn.addEventListener('click', () => {
-    intro.classList.add('hidden');
-    loginForm.classList.remove('hidden');
-  });
+    <!-- Tela de cadastro -->
+    <div id="registerForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
+      <h2 class="text-2xl text-primary font-bold mb-4">Criar Conta</h2>
+      <input type="text" placeholder="Nome" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
+      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
+      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
 
-  backBtn.addEventListener('click', () => {
-    loginForm.classList.add('hidden');
-    intro.classList.remove('hidden');
-  });
-</script>
-</body>
+      <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Registrar</button>
 
+      <button id="backToLoginBtn" class="mt-6 text-primary hover:underline text-sm">← Voltar ao login</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      const intro = document.getElementById('intro');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const startBtn = document.getElementById('startBtn');
+      const backBtn = document.getElementById('backBtn');
+      const createAccountBtn = document.getElementById('createAccountBtn');
+      const backToLoginBtn = document.getElementById('backToLoginBtn');
+
+      startBtn.addEventListener('click', () => {
+        intro.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+      });
+
+      backBtn.addEventListener('click', () => {
+        loginForm.classList.add('hidden');
+        intro.classList.remove('hidden');
+      });
+
+      createAccountBtn.addEventListener('click', () => {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+      });
+
+      backToLoginBtn.addEventListener('click', () => {
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+      });
+    </script>
+  </body>
 </html>
