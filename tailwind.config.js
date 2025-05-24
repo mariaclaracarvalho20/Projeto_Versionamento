@@ -1,12 +1,8 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+module.exports = {
+  darkMode: 'class', // usa a classe .dark no <html> ou <body>
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
-        handwriting: ['"Shadows Into Light"', 'cursive'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

@@ -6,8 +6,8 @@
     <title>Diário Animado</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
-    <!-- Fonte moderna: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+    <!-- Fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,20 +15,21 @@
     <!-- Tailwind config personalizada -->
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              primary: '#2F3C7E',     // Azul petróleo
-              secondary: '#D8D4F2',   // Lilás claro
-              accent: '#A2D5AB',      // Verde menta
-              neutral: '#F7F7F7',     // Cinza claro
+              primary: '#2F3C7E',
+              secondary: '#D8D4F2',
+              accent: '#A2D5AB',
+              neutral: '#F7F7F7',
             },
             fontFamily: {
               sans: ['Poppins', 'sans-serif'],
             },
             animation: {
               fadeIn: 'fadeIn 1.2s ease-out forwards',
-              bounceIn: 'bounceIn 1s ease-out forwards'
+              bounceIn: 'bounceIn 1s ease-out forwards',
             },
             keyframes: {
               fadeIn: {
@@ -39,53 +40,57 @@
                 '0%': { transform: 'scale(0.9)', opacity: 0 },
                 '60%': { transform: 'scale(1.05)', opacity: 1 },
                 '100%': { transform: 'scale(1)' },
-              }
-            }
-          }
-        }
-      }
+              },
+            },
+          },
+        },
+      };
     </script>
   </head>
 
-  <body class="bg-neutral font-sans min-h-screen flex items-center justify-center px-4">
+  <body class="bg-gradient-to-br from-neutral to-secondary dark:from-gray-900 dark:to-gray-800 font-sans min-h-screen flex items-center justify-center px-4 transition-colors duration-500" id="mainBody">
+
+    <!-- Botão de alternância de tema -->
+    <button id="themeToggle" class="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-900 transition">
+      🌙 Modo Escuro
+    </button>
 
     <!-- Tela de introdução -->
-    <div id="intro" class="bg-white rounded-2xl shadow-lg p-8 text-center animate-fadeIn max-w-md">
-      <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn" />
-      <h1 class="text-3xl text-primary font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
-      <p class="text-gray-600 mb-6 text-base">
-        Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨
-      </p>
+    <div id="intro" class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center animate-fadeIn max-w-md transition-all duration-300 transform hover:scale-[1.01]">
+      <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" alt="Ícone do diário" class="mx-auto w-24 h-24 mb-6 animate-bounceIn drop-shadow-xl" />
+      <h1 class="text-3xl text-primary dark:text-white font-bold mb-3">Olá, bem-vindo(a) ao Diário Animado</h1>
+      <p class="text-gray-700 dark:text-gray-300 mb-6 text-base">Um lugar seguro e moderno para registrar seus pensamentos, memórias e sonhos ✨</p>
       <button id="startBtn" class="bg-accent hover:bg-green-400 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105">
         Começar agora
       </button>
     </div>
 
     <!-- Tela de login -->
-    <div id="loginForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
-      <h2 class="text-2xl text-primary font-bold mb-4">Login</h2>
-      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-
+    <div id="loginForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
+      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Login</h2>
+      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
+      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
       <div class="flex justify-center gap-4">
         <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Entrar</button>
         <button id="createAccountBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Criar conta</button>
       </div>
-
-      <button id="backBtn" class="mt-6 text-primary hover:underline text-sm">← Voltar à página inicial</button>
+      <button id="backBtn" class="mt-6 text-primary dark:text-white hover:underline text-sm">← Voltar à página inicial</button>
     </div>
 
     <!-- Tela de cadastro -->
-    <div id="registerForm" class="bg-white rounded-2xl shadow-lg p-8 text-center max-w-md hidden animate-fadeIn">
-      <h2 class="text-2xl text-primary font-bold mb-4">Criar Conta</h2>
-      <input type="text" placeholder="Nome" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent" />
-
+    <div id="registerForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
+      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Criar Conta</h2>
+      <input type="text" placeholder="Nome" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
+      <input type="email" placeholder="Email" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
+      <input type="password" placeholder="Senha" class="w-full p-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
       <button class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Registrar</button>
-
-      <button id="backToLoginBtn" class="mt-6 text-primary hover:underline text-sm">← Voltar ao login</button>
+      <button id="backToLoginBtn" class="mt-6 text-primary dark:text-white hover:underline text-sm">← Voltar ao login</button>
     </div>
+
+    <!-- Áudio de fundo com autoplay -->
+    <audio id="audioDiario" autoplay loop muted>
+      <source src="musica.mp3" type="audio/mpeg" />
+    </audio>
 
     <!-- JavaScript -->
     <script>
@@ -96,6 +101,8 @@
       const backBtn = document.getElementById('backBtn');
       const createAccountBtn = document.getElementById('createAccountBtn');
       const backToLoginBtn = document.getElementById('backToLoginBtn');
+      const themeToggle = document.getElementById('themeToggle');
+      const mainBody = document.getElementById('mainBody');
 
       startBtn.addEventListener('click', () => {
         intro.classList.add('hidden');
@@ -115,6 +122,21 @@
       backToLoginBtn.addEventListener('click', () => {
         registerForm.classList.add('hidden');
         loginForm.classList.remove('hidden');
+      });
+
+      // Tema escuro/claro
+      let darkMode = false;
+      themeToggle.addEventListener('click', () => {
+        darkMode = !darkMode;
+        document.documentElement.classList.toggle('dark');
+        themeToggle.textContent = darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+      });
+
+      // Ativar som ao carregar
+      window.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('audioDiario');
+        audio.muted = false;
+        audio.play().catch(e => console.log('Autoplay bloqueado:', e.message));
       });
     </script>
   </body>

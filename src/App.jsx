@@ -1,13 +1,35 @@
-import DiaryEntry from './components/DiaryEntry'
-import './index.css';
-export default function App() {
+// src/App.jsx
+import { useEffect, useState } from 'react';
+
+function App() {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
-      <div className="bg-white shadow-2xl rounded-2xl w-full max-w-2xl p-6 border-4 border-yellow-300 animate-fade-in">
-        <h1 className="text-3xl font-bold text-center mb-6">📔 Meu Diário Animado</h1>
-        <DiaryEntry />
-      </div>
+    // Aqui usamos a div que aplica os temas
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold mb-4">Olá, Maria Clara!</h1>
+      
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="px-4 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-black rounded hover:opacity-80 transition"
+      >
+        {darkMode ? 'Tema Claro' : 'Tema Escuro'}
+      </button>
     </div>
-  )
+  );
 }
 
+export default App;
