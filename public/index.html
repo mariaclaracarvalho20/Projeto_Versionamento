@@ -87,6 +87,17 @@
       <button id="logoutBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Sair</button>
     </div>
 
+    <!-- Novo formulário de registro -->
+    <div id="entryForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
+      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Novo Registro</h2>
+      <input id="entryTitle" type="text" placeholder="Título" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
+      <textarea id="entryText" rows="5" placeholder="Descrição" class="w-full p-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white"></textarea>
+      <div class="flex justify-center gap-4">
+        <button id="saveEntryBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Salvar</button>
+        <button id="cancelEntryBtn" class="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-600 transition">Cancelar</button>
+      </div>
+    </div>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
@@ -117,6 +128,7 @@
       const loginForm = document.getElementById('loginForm');
       const registerForm = document.getElementById('registerForm');
       const dashboard = document.getElementById('dashboard');
+      const entryForm = document.getElementById('entryForm');
 
       const startBtn = document.getElementById('startBtn');
       const backBtn = document.getElementById('backBtn');
@@ -125,8 +137,11 @@
 
       const loginBtn = document.getElementById('loginBtn');
       const logoutBtn = document.getElementById('logoutBtn');
+      const registerBtn = document.getElementById('registerBtn');
 
       const newEntryBtn = document.getElementById('newEntryBtn');
+      const saveEntryBtn = document.getElementById('saveEntryBtn');
+      const cancelEntryBtn = document.getElementById('cancelEntryBtn');
 
       const userNameSpan = document.getElementById('userName');
 
@@ -135,6 +150,9 @@
       const registerName = document.getElementById('registerName');
       const registerEmail = document.getElementById('registerEmail');
       const registerPassword = document.getElementById('registerPassword');
+
+      const entryTitle = document.getElementById('entryTitle');
+      const entryText = document.getElementById('entryText');
 
       const themeToggle = document.getElementById('themeToggle');
 
@@ -227,7 +245,34 @@
       });
 
       newEntryBtn.addEventListener('click', () => {
-        alert('Botão "Iniciar Novo Registro" clicado! Aqui você pode adicionar a funcionalidade de abrir o formulário.');
+        dashboard.classList.add('hidden');
+        entryForm.classList.remove('hidden');
+
+        // limpa campos
+        entryTitle.value = '';
+        entryText.value = '';
+      });
+
+      saveEntryBtn.addEventListener('click', () => {
+        const titulo = entryTitle.value.trim();
+        const texto = entryText.value.trim();
+
+        if (!titulo || !texto) {
+          alert('Por favor, preencha o título e a descrição!');
+          return;
+        }
+
+        // Simula salvar o registro (pode ser adaptado para salvar no banco)
+        alert(`Registro salvo!\nTítulo: ${titulo}\nDescrição: ${texto}`);
+
+        // volta para dashboard
+        entryForm.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+      });
+
+      cancelEntryBtn.addEventListener('click', () => {
+        entryForm.classList.add('hidden');
+        dashboard.classList.remove('hidden');
       });
 
       onAuthStateChanged(auth, (user) => {
@@ -236,10 +281,12 @@
           loginForm.classList.add('hidden');
           registerForm.classList.add('hidden');
           dashboard.classList.remove('hidden');
+          entryForm.classList.add('hidden');
           userNameSpan.textContent = user.displayName || user.email;
         } else {
           dashboard.classList.add('hidden');
           intro.classList.remove('hidden');
+          entryForm.classList.add('hidden');
         }
       });
     </script>
