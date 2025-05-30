@@ -83,10 +83,9 @@
     <div id="dashboard" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
       <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Bem-vindo(a), <span id="userName"></span>!</h2>
       <p class="text-gray-700 dark:text-gray-300 mb-6">Aqui você pode registrar seus pensamentos, memórias e sonhos.</p>
+      <button id="newEntryBtn" class="bg-accent text-primary py-2 px-6 rounded-full shadow-md hover:bg-green-400 transition mb-4">Iniciar Novo Registro</button>
       <button id="logoutBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Sair</button>
     </div>
-
-    
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
@@ -126,7 +125,8 @@
 
       const loginBtn = document.getElementById('loginBtn');
       const logoutBtn = document.getElementById('logoutBtn');
-      const registerBtn = document.getElementById('registerBtn');
+
+      const newEntryBtn = document.getElementById('newEntryBtn');
 
       const userNameSpan = document.getElementById('userName');
 
@@ -224,6 +224,10 @@
         await signOut(auth);
         dashboard.classList.add('hidden');
         intro.classList.remove('hidden');
+      });
+
+      newEntryBtn.addEventListener('click', () => {
+        alert('Botão "Iniciar Novo Registro" clicado! Aqui você pode adicionar a funcionalidade de abrir o formulário.');
       });
 
       onAuthStateChanged(auth, (user) => {
