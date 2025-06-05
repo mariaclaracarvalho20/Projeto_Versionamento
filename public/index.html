@@ -14,7 +14,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
+    <!-- Tailwind config personalizada -->
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -54,7 +54,7 @@
 <<<<<<< HEAD
 =======
 
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
+    <!-- Botão de alternância de tema -->
     <button id="themeToggle" class="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-900 transition">
       🌙 Modo Escuro
     </button>
@@ -88,76 +88,17 @@
       <button id="backToLoginBtn" class="mt-6 text-primary dark:text-white hover:underline text-sm">← Voltar ao login</button>
     </div>
 
-<<<<<<< HEAD
-    <div id="dashboard" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
-      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4 text-center">Bem-vindo(a), <span id="userName"></span>!</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-6 text-center">Aqui você pode registrar seus pensamentos, memórias e sonhos.</p>
-      <button id="logoutBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition mb-6 block mx-auto">Sair</button>
-
-      <div class="mt-6">
-        <h3 class="text-xl font-semibold text-primary dark:text-white mb-2">Nova entrada:</h3>
-        <textarea id="newEntry" rows="5" placeholder="Escreva aqui..." class="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white mb-4 resize-none"></textarea>
-        <button id="saveEntryBtn" class="bg-accent hover:bg-green-500 text-primary font-medium py-2 px-6 rounded-full shadow-md transition transform hover:scale-105 block mx-auto">
-          Salvar entrada
-        </button>
-      </div>
-
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold text-primary dark:text-white mb-4 text-center">Suas entradas:</h3>
-        <div id="loadingEntries" class="text-center py-4">
-          <p class="text-gray-500 dark:text-gray-300">Carregando suas entradas...</p>
-        </div>
-        <ul id="entriesList" class="space-y-4">
-          </ul>
-=======
-    <div id="dashboard" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
-      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Bem-vindo(a), <span id="userName"></span>!</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-6">Aqui você pode registrar seus pensamentos, memórias e sonhos.</p>
-      <button id="newEntryBtn" class="bg-accent text-primary py-2 px-6 rounded-full shadow-md hover:bg-green-400 transition mb-4">Iniciar Novo Registro</button>
-      <button id="logoutBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Sair</button>
-    </div>
-
-    <!-- Novo formulário de registro -->
-    <div id="entryForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
-      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Novo Registro</h2>
-      <input id="entryTitle" type="text" placeholder="Título" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
-      <textarea id="entryText" rows="5" placeholder="Descrição" class="w-full p-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white"></textarea>
-      <div class="flex justify-center gap-4">
-        <button id="saveEntryBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Salvar</button>
-        <button id="cancelEntryBtn" class="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-600 transition">Cancelar</button>
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-      </div>
-    </div>
+    <!-- Áudio de fundo com autoplay -->
+    <audio id="audioDiario" autoplay loop muted>
+      <source src="musica.mp3" type="audio/mpeg" />
+    </audio>
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        updateProfile,
-        signOut,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
-<<<<<<< HEAD
-      import { 
-        getFirestore, 
-        collection, 
-        addDoc, 
-        query, 
-        where, 
-        getDocs, 
-        doc, 
-        updateDoc, 
-        deleteDoc,
-        onSnapshot,
-        orderBy,
-        serverTimestamp
-      } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
-=======
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
+      import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 
+      // Configuração do Firebase
       const firebaseConfig = {
         apiKey: "AIzaSyBPl-srmPiWmAzA6OuXyCsUdts8B6ipCBM",
         authDomain: "diario-55359.firebaseapp.com",
@@ -176,54 +117,13 @@
       const intro = document.getElementById('intro');
       const loginForm = document.getElementById('loginForm');
       const registerForm = document.getElementById('registerForm');
-      const dashboard = document.getElementById('dashboard');
-<<<<<<< HEAD
-      const loadingEntries = document.getElementById('loadingEntries');
-=======
-      const entryForm = document.getElementById('entryForm');
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-
       const startBtn = document.getElementById('startBtn');
       const backBtn = document.getElementById('backBtn');
       const createAccountBtn = document.getElementById('createAccountBtn');
       const backToLoginBtn = document.getElementById('backToLoginBtn');
-
-      const loginBtn = document.getElementById('loginBtn');
-      const logoutBtn = document.getElementById('logoutBtn');
-      const registerBtn = document.getElementById('registerBtn');
-
-<<<<<<< HEAD
-=======
-      const newEntryBtn = document.getElementById('newEntryBtn');
-      const saveEntryBtn = document.getElementById('saveEntryBtn');
-      const cancelEntryBtn = document.getElementById('cancelEntryBtn');
-
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-      const userNameSpan = document.getElementById('userName');
-
-      const loginEmail = document.getElementById('loginEmail');
-      const loginPassword = document.getElementById('loginPassword');
-      const registerName = document.getElementById('registerName');
-      const registerEmail = document.getElementById('registerEmail');
-      const registerPassword = document.getElementById('registerPassword');
-
-<<<<<<< HEAD
       const themeToggle = document.getElementById('themeToggle');
 
-      const newEntry = document.getElementById('newEntry');
-      const saveEntryBtn = document.getElementById('saveEntryBtn');
-      const entriesList = document.getElementById('entriesList');
-
-      let unsubscribeEntries = null;
-      let existingEntryElements = new Map(); 
-
-=======
-      const entryTitle = document.getElementById('entryTitle');
-      const entryText = document.getElementById('entryText');
-
-      const themeToggle = document.getElementById('themeToggle');
-
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
+      // Eventos para alternar telas
       startBtn.addEventListener('click', () => {
         intro.classList.add('hidden');
         loginForm.classList.remove('hidden');
@@ -269,287 +169,14 @@
 =======
           alert('Conta criada com sucesso! Você pode fazer login agora.');
 
-          registerName.value = '';
-          registerEmail.value = '';
-          registerPassword.value = '';
-
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
+          // Limpar campos e voltar para login
+          inputs.forEach(input => input.value = '');
           registerForm.classList.add('hidden');
           loginForm.classList.remove('hidden');
         } catch (error) {
           alert('Erro ao criar conta: ' + error.message);
         }
       });
-
-      loginBtn.addEventListener('click', async () => {
-        const email = loginEmail.value.trim();
-        const senha = loginPassword.value.trim();
-
-        if (!email || !senha) {
-<<<<<<< HEAD
-          alert('Por favor, preencha todos os campos!');
-=======
-          alert('Por favor, informe seu email e senha!');
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-          return;
-        }
-
-        try {
-<<<<<<< HEAD
-          await signInWithEmailAndPassword(auth, email, senha);
-        } catch (error) {
-=======
-          const userCredential = await signInWithEmailAndPassword(auth, email, senha);
-          const user = userCredential.user;
-
-          loginForm.classList.add('hidden');
-          intro.classList.add('hidden');
-          registerForm.classList.add('hidden');
-
-          userNameSpan.textContent = user.displayName || user.email;
-          dashboard.classList.remove('hidden');
-
-          loginEmail.value = '';
-          loginPassword.value = '';
-        } catch (error) {
-          console.error(error);
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-          alert('Erro ao fazer login: ' + error.message);
-        }
-      });
-
-      logoutBtn.addEventListener('click', async () => {
-<<<<<<< HEAD
-        try {
-          if (unsubscribeEntries) {
-            unsubscribeEntries();
-            unsubscribeEntries = null;
-          }
-          existingEntryElements.clear();
-          
-          await signOut(auth);
-        } catch (error) {
-          console.error('Erro ao fazer logout:', error);
-        }
-      });
-
-      onAuthStateChanged(auth, async (user) => {
-=======
-        await signOut(auth);
-        dashboard.classList.add('hidden');
-        intro.classList.remove('hidden');
-      });
-
-      newEntryBtn.addEventListener('click', () => {
-        dashboard.classList.add('hidden');
-        entryForm.classList.remove('hidden');
-
-        // limpa campos
-        entryTitle.value = '';
-        entryText.value = '';
-      });
-
-      saveEntryBtn.addEventListener('click', () => {
-        const titulo = entryTitle.value.trim();
-        const texto = entryText.value.trim();
-
-        if (!titulo || !texto) {
-          alert('Por favor, preencha o título e a descrição!');
-          return;
-        }
-
-        // Simula salvar o registro (pode ser adaptado para salvar no banco)
-        alert(`Registro salvo!\nTítulo: ${titulo}\nDescrição: ${texto}`);
-
-        // volta para dashboard
-        entryForm.classList.add('hidden');
-        dashboard.classList.remove('hidden');
-      });
-
-      cancelEntryBtn.addEventListener('click', () => {
-        entryForm.classList.add('hidden');
-        dashboard.classList.remove('hidden');
-      });
-
-      onAuthStateChanged(auth, (user) => {
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
-        if (user) {
-          intro.classList.add('hidden');
-          loginForm.classList.add('hidden');
-          registerForm.classList.add('hidden');
-          dashboard.classList.remove('hidden');
-<<<<<<< HEAD
-          userNameSpan.textContent = user.displayName || user.email || 'Usuário';
-          
-          loadEntries(user.uid);
-        } else {
-          intro.classList.remove('hidden');
-          loginForm.classList.add('hidden');
-          registerForm.classList.add('hidden');
-          dashboard.classList.add('hidden');
-          
-          entriesList.innerHTML = ''; 
-          existingEntryElements.clear();
-          
-          if (unsubscribeEntries) {
-            unsubscribeEntries();
-            unsubscribeEntries = null;
-          }
-        }
-      });
-
-
-      saveEntryBtn.addEventListener('click', async () => {
-        const text = newEntry.value.trim();
-        if (!text) {
-          alert('Por favor, escreva algo para salvar.');
-          return;
-        }
-
-        const user = auth.currentUser;
-        if (!user) {
-          alert('Você precisa estar logado para salvar uma entrada.');
-          return;
-        }
-
-        try {
-          await addDoc(collection(db, "entries"), {
-            userId: user.uid,
-            content: text,
-            date: serverTimestamp(),
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          });
-          
-          newEntry.value = '';
-        } catch (error) {
-          console.error("Erro ao salvar entrada:", error);
-          alert('Erro ao salvar entrada. Por favor, tente novamente.');
-        }
-      });
-
-      function loadEntries(userId) {
-        loadingEntries.classList.remove('hidden'); 
-        entriesList.innerHTML = ''; 
-        
-        const q = query(
-          collection(db, "entries"), 
-          where("userId", "==", userId),
-          orderBy("date", "desc")
-        );
-        
-        unsubscribeEntries = onSnapshot(q, (querySnapshot) => {
-          loadingEntries.classList.add('hidden');
-          
-          entriesList.innerHTML = ''; 
-          existingEntryElements.clear(); 
-
-          if (querySnapshot.empty) {
-            entriesList.innerHTML = '<p class="text-gray-500 dark:text-gray-300 text-center py-4">Nenhuma entrada encontrada. Comece a escrever!</p>';
-            return; 
-          }
-          
-          querySnapshot.forEach((doc) => {
-            const entry = doc.data();
-            const entryId = doc.id;
-            const li = createEntryElement(entry, entryId);
-            entriesList.appendChild(li); 
-            existingEntryElements.set(entryId, li);
-          });
-
-        }, (error) => {
-          console.error("Erro ao carregar entradas:", error);
-          loadingEntries.classList.add('hidden'); 
-          entriesList.innerHTML = '<p class="text-red-500 dark:text-red-300 text-center py-4">Erro ao carregar entradas. Por favor, tente novamente.</p>';
-        });
-      }
-
-      function createEntryElement(entry, entryId) {
-        const li = document.createElement('li');
-        li.className = 'p-4 bg-neutral dark:bg-gray-700 rounded-md shadow-md relative group';
-        li.dataset.id = entryId;
-        updateEntryElement(li, entry, entryId); 
-        return li;
-      }
-
-      function updateEntryElement(li, entry, entryId) {
-        const date = entry.date ? new Date(entry.date.seconds * 1000) : new Date(entry.createdAt);
-        const formattedDate = date.toLocaleString('pt-BR', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-
-        li.innerHTML = `
-          <p class="text-sm text-gray-500 dark:text-gray-300 mb-2">${formattedDate}</p>
-          <p class="text-gray-800 dark:text-white whitespace-pre-wrap mb-3 entry-content">${entry.content}</p>
-          <div class="flex gap-2">
-            <button class="editBtn bg-primary text-white px-4 py-1 rounded-full hover:bg-blue-800 transition">Editar</button>
-            <button class="deleteBtn bg-red-500 text-white px-4 py-1 rounded-full hover:bg-red-600 transition">Excluir</button>
-          </div>
-        `;
-
-        li.querySelector('.editBtn').addEventListener('click', () => {
-          const contentElement = li.querySelector('.entry-content');
-          const currentContent = contentElement.textContent;
-          
-          li.innerHTML = `
-            <p class="text-sm text-gray-500 dark:text-gray-300 mb-2">${formattedDate}</p>
-            <textarea class="w-full p-2 mb-2 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white edit-textarea" rows="4">${currentContent}</textarea>
-            <div class="flex gap-2">
-              <button class="saveEditBtn bg-accent text-primary px-4 py-1 rounded-full hover:bg-green-500 transition">Salvar</button>
-              <button class="cancelEditBtn bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-4 py-1 rounded-full hover:bg-gray-400 transition">Cancelar</button>
-            </div>
-          `;
-          
-          li.querySelector('.saveEditBtn').addEventListener('click', async () => {
-            const newContent = li.querySelector('.edit-textarea').value.trim();
-            
-            if (!newContent) {
-              alert('O conteúdo não pode estar vazio.');
-              return;
-            }
-            
-            try {
-              const entryRef = doc(db, "entries", entryId);
-              await updateDoc(entryRef, {
-                content: newContent,
-                updatedAt: new Date().toISOString()
-              });
-            } catch (error) {
-              console.error("Erro ao atualizar entrada:", error);
-              alert('Erro ao atualizar entrada. Por favor, tente novamente.');
-            }
-          });
-          
-          li.querySelector('.cancelEditBtn').addEventListener('click', () => {
-            updateEntryElement(li, entry, entryId);
-          });
-        });
-        
-        li.querySelector('.deleteBtn').addEventListener('click', async () => {
-          if (confirm('Tem certeza que deseja excluir esta entrada?')) {
-            try {
-              await deleteDoc(doc(db, "entries", entryId));
-            } catch (error) {
-              console.error("Erro ao excluir entrada:", error);
-              alert('Erro ao excluir entrada. Por favor, tente novamente.');
-            }
-          }
-        });
-      }
-=======
-          entryForm.classList.add('hidden');
-          userNameSpan.textContent = user.displayName || user.email;
-        } else {
-          dashboard.classList.add('hidden');
-          intro.classList.remove('hidden');
-          entryForm.classList.add('hidden');
-        }
-      });
->>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
     </script>
   </body>
 </html>
