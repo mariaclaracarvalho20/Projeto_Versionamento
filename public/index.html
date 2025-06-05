@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diário Animado</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+=======
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -43,6 +51,10 @@
   </head>
 
   <body class="bg-gradient-to-br from-neutral to-secondary dark:from-gray-900 dark:to-gray-800 font-sans min-h-screen flex items-center justify-center px-4 transition-colors duration-500" id="mainBody">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
     <button id="themeToggle" class="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-900 transition">
       🌙 Modo Escuro
     </button>
@@ -76,6 +88,7 @@
       <button id="backToLoginBtn" class="mt-6 text-primary dark:text-white hover:underline text-sm">← Voltar ao login</button>
     </div>
 
+<<<<<<< HEAD
     <div id="dashboard" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
       <h2 class="text-2xl text-primary dark:text-white font-bold mb-4 text-center">Bem-vindo(a), <span id="userName"></span>!</h2>
       <p class="text-gray-700 dark:text-gray-300 mb-6 text-center">Aqui você pode registrar seus pensamentos, memórias e sonhos.</p>
@@ -96,6 +109,23 @@
         </div>
         <ul id="entriesList" class="space-y-4">
           </ul>
+=======
+    <div id="dashboard" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
+      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Bem-vindo(a), <span id="userName"></span>!</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-6">Aqui você pode registrar seus pensamentos, memórias e sonhos.</p>
+      <button id="newEntryBtn" class="bg-accent text-primary py-2 px-6 rounded-full shadow-md hover:bg-green-400 transition mb-4">Iniciar Novo Registro</button>
+      <button id="logoutBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Sair</button>
+    </div>
+
+    <!-- Novo formulário de registro -->
+    <div id="entryForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-md animate-fadeIn transition-all duration-300 transform hover:scale-[1.01]">
+      <h2 class="text-2xl text-primary dark:text-white font-bold mb-4">Novo Registro</h2>
+      <input id="entryTitle" type="text" placeholder="Título" class="w-full p-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white" />
+      <textarea id="entryText" rows="5" placeholder="Descrição" class="w-full p-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-black dark:text-white"></textarea>
+      <div class="flex justify-center gap-4">
+        <button id="saveEntryBtn" class="bg-primary text-white py-2 px-6 rounded-full hover:bg-blue-800 transition">Salvar</button>
+        <button id="cancelEntryBtn" class="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-600 transition">Cancelar</button>
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
       </div>
     </div>
 
@@ -110,6 +140,7 @@
         signOut,
         onAuthStateChanged,
       } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+<<<<<<< HEAD
       import { 
         getFirestore, 
         collection, 
@@ -124,6 +155,8 @@
         orderBy,
         serverTimestamp
       } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+=======
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
 
       const firebaseConfig = {
         apiKey: "AIzaSyBPl-srmPiWmAzA6OuXyCsUdts8B6ipCBM",
@@ -144,7 +177,11 @@
       const loginForm = document.getElementById('loginForm');
       const registerForm = document.getElementById('registerForm');
       const dashboard = document.getElementById('dashboard');
+<<<<<<< HEAD
       const loadingEntries = document.getElementById('loadingEntries');
+=======
+      const entryForm = document.getElementById('entryForm');
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
 
       const startBtn = document.getElementById('startBtn');
       const backBtn = document.getElementById('backBtn');
@@ -155,6 +192,13 @@
       const logoutBtn = document.getElementById('logoutBtn');
       const registerBtn = document.getElementById('registerBtn');
 
+<<<<<<< HEAD
+=======
+      const newEntryBtn = document.getElementById('newEntryBtn');
+      const saveEntryBtn = document.getElementById('saveEntryBtn');
+      const cancelEntryBtn = document.getElementById('cancelEntryBtn');
+
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
       const userNameSpan = document.getElementById('userName');
 
       const loginEmail = document.getElementById('loginEmail');
@@ -163,6 +207,7 @@
       const registerEmail = document.getElementById('registerEmail');
       const registerPassword = document.getElementById('registerPassword');
 
+<<<<<<< HEAD
       const themeToggle = document.getElementById('themeToggle');
 
       const newEntry = document.getElementById('newEntry');
@@ -172,6 +217,13 @@
       let unsubscribeEntries = null;
       let existingEntryElements = new Map(); 
 
+=======
+      const entryTitle = document.getElementById('entryTitle');
+      const entryText = document.getElementById('entryText');
+
+      const themeToggle = document.getElementById('themeToggle');
+
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
       startBtn.addEventListener('click', () => {
         intro.classList.add('hidden');
         loginForm.classList.remove('hidden');
@@ -212,7 +264,16 @@
         try {
           const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
           await updateProfile(userCredential.user, { displayName: nome });
+<<<<<<< HEAD
           alert('Conta criada com sucesso!');
+=======
+          alert('Conta criada com sucesso! Você pode fazer login agora.');
+
+          registerName.value = '';
+          registerEmail.value = '';
+          registerPassword.value = '';
+
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
           registerForm.classList.add('hidden');
           loginForm.classList.remove('hidden');
         } catch (error) {
@@ -225,18 +286,40 @@
         const senha = loginPassword.value.trim();
 
         if (!email || !senha) {
+<<<<<<< HEAD
           alert('Por favor, preencha todos os campos!');
+=======
+          alert('Por favor, informe seu email e senha!');
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
           return;
         }
 
         try {
+<<<<<<< HEAD
           await signInWithEmailAndPassword(auth, email, senha);
         } catch (error) {
+=======
+          const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+          const user = userCredential.user;
+
+          loginForm.classList.add('hidden');
+          intro.classList.add('hidden');
+          registerForm.classList.add('hidden');
+
+          userNameSpan.textContent = user.displayName || user.email;
+          dashboard.classList.remove('hidden');
+
+          loginEmail.value = '';
+          loginPassword.value = '';
+        } catch (error) {
+          console.error(error);
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
           alert('Erro ao fazer login: ' + error.message);
         }
       });
 
       logoutBtn.addEventListener('click', async () => {
+<<<<<<< HEAD
         try {
           if (unsubscribeEntries) {
             unsubscribeEntries();
@@ -251,11 +334,51 @@
       });
 
       onAuthStateChanged(auth, async (user) => {
+=======
+        await signOut(auth);
+        dashboard.classList.add('hidden');
+        intro.classList.remove('hidden');
+      });
+
+      newEntryBtn.addEventListener('click', () => {
+        dashboard.classList.add('hidden');
+        entryForm.classList.remove('hidden');
+
+        // limpa campos
+        entryTitle.value = '';
+        entryText.value = '';
+      });
+
+      saveEntryBtn.addEventListener('click', () => {
+        const titulo = entryTitle.value.trim();
+        const texto = entryText.value.trim();
+
+        if (!titulo || !texto) {
+          alert('Por favor, preencha o título e a descrição!');
+          return;
+        }
+
+        // Simula salvar o registro (pode ser adaptado para salvar no banco)
+        alert(`Registro salvo!\nTítulo: ${titulo}\nDescrição: ${texto}`);
+
+        // volta para dashboard
+        entryForm.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+      });
+
+      cancelEntryBtn.addEventListener('click', () => {
+        entryForm.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+      });
+
+      onAuthStateChanged(auth, (user) => {
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
         if (user) {
           intro.classList.add('hidden');
           loginForm.classList.add('hidden');
           registerForm.classList.add('hidden');
           dashboard.classList.remove('hidden');
+<<<<<<< HEAD
           userNameSpan.textContent = user.displayName || user.email || 'Usuário';
           
           loadEntries(user.uid);
@@ -417,6 +540,16 @@
           }
         });
       }
+=======
+          entryForm.classList.add('hidden');
+          userNameSpan.textContent = user.displayName || user.email;
+        } else {
+          dashboard.classList.add('hidden');
+          intro.classList.remove('hidden');
+          entryForm.classList.add('hidden');
+        }
+      });
+>>>>>>> 6c0384df6775c816341660f5bdbc5726a86794c4
     </script>
   </body>
 </html>
